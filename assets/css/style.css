@@ -1,7 +1,15 @@
 .infoBar {
-    background-color: aqua;
+    /* background-color: aqua; */
     display: flex;
     justify-content: space-around;
+}
+
+.infoBar div {
+    font-size: 35px;
+}
+
+.time {
+    padding-left: 50%;
 }
 
 .instructions h1,
@@ -9,4 +17,18 @@
 .buttonControl {
     display: flex;
     justify-content: center;
+}
+
+.instructions h1 {
+    font-size: 50px;
+}
+
+.instructions p {
+    /* background-color: blue; */
+    font-size: 25px;
+    padding-bottom: 10%;
+}
+
+.buttonControl button {
+    font-size: 25px;
 }
