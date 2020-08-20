@@ -1,0 +1,12 @@
+.infoBar {
+    background-color: aqua;
+    display: flex;
+    justify-content: space-around;
+}
+
+.instructions h1,
+.instructions p,
+.buttonControl {
+    display: flex;
+    justify-content: center;
+}
