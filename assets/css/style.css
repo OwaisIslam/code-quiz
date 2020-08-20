@@ -22,6 +22,7 @@ body {
     display: flex;
     justify-content: center;
 }
+
 .instructions div {
     padding-top: 20px;
     line-height: 100%;
@@ -32,7 +33,10 @@ body {
 }
 
 .instructions p {
-    /* background-color: blue; */
+    font-size: 25px;
+}
+
+.instruction_box {
     font-size: 25px;
     padding-bottom: 10%;
 }

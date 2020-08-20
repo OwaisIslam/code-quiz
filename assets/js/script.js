@@ -1,7 +1,11 @@
 var body = document.querySelector("body");
 var timer = document.getElementById("timer");
-
+var instructions = document.querySelector(".instructions");
 var beginButtonClick = document.querySelector("#beginButton");
+
+var quizQuestion = function () {
+
+}
 
 beginButtonClick.addEventListener("click", function () {
     var seconds = 60,
@@ -24,4 +28,6 @@ beginButtonClick.addEventListener("click", function () {
         }
     }
     tick();
+
+    instructions.style.display = "none";
 })
