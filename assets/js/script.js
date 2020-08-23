@@ -1,7 +1,11 @@
 var body = document.querySelector("body");
 var timer = document.getElementById("time");
 var instructions = document.querySelector(".instructions");
-var beginButtonClick = document.querySelector("#beginButton")
+var beginButtonClick = document.querySelector("#beginButton");
+var choices = document.querySelector(".choices");
+
+var currentTime = timer.textContent;
+var currentQuestion = 0;
 
 var questions = [{
         ask: "Inside which HTML element do we put the JavaScript?",
@@ -60,11 +64,21 @@ var questions = [{
     }
 ]
 
-var currentTime = timer.textContent;
-
-
 var quizQuestion = function () {
+    var questionP = document.querySelector(".question");
+    var answersOl = document.querySelector(".answers");
 
+    questionP.textContent = questions[currentQuestion].ask;
+
+    var buttonAnswerA = document.getElementById("answerA");
+    var buttonAnswerB = document.getElementById("answerB");
+    var buttonAnswerC = document.getElementById("answerC");
+    var buttonAnswerD = document.getElementById("answerD");
+    
+    buttonAnswerA.textContent = questions[currentQuestion].answers[0];
+    buttonAnswerB.textContent = questions[currentQuestion].answers[1];
+    buttonAnswerC.textContent = questions[currentQuestion].answers[2];
+    buttonAnswerD.textContent = questions[currentQuestion].answers[3];
 }
 
 beginButtonClick.addEventListener("click", function () {
@@ -77,4 +91,7 @@ beginButtonClick.addEventListener("click", function () {
     }, 1000)
 
     instructions.style.display = "none";
+    choices.style.display = "flex";
+
+    quizQuestion();
 })

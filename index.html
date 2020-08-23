@@ -9,21 +9,39 @@
 </head>
 
 <body>
-    <header class="infoBar">
-        <div class="highScores"><a href="">View High Scores</a></div>
+    <header class="info-bar">
+        <div class="high-scores"><a href="">View High Scores</a></div>
         <div class="timer">Time: <span id="time">60</span></div>
     </header>
 
     <section class="instructions">
-        <div class="instruction_box">
+        <div class="instruction-box">
             <h1>Coding Quiz Challenge</h1>
             <p>Try and answer the following questions within one minute!</p>
-            <p>You will be penalized for incorect answers.</p>
+            <p>You will be penalized for incorrect answers.</p>
         </div>
-        <div class="buttonControl">
+        <div class="button-control">
             <button type="button" id="beginButton">Let's begin!</button>
         </div>
     </section>
+
+    <main>
+        <section class="questions">
+            <div class="question-block">
+                <p class="question"></p>
+            </div>
+            <div class="break"></div>
+            <div class="choices" style="width:100%">
+                <button style="width:25%" id="answerA"></button>
+                <button style="width:25%" id="answerB"></button>
+                <button style="width:25%" id="answerC"></button>
+                <button style="width:25%" id="answerD"></button>
+            </div>
+            <div class="answer-block">
+                <ol class="answers"></ol>
+            </div>
+        </section>
+    </main>
 
     <script src="./assets/js/script.js"></script>
 </body>
