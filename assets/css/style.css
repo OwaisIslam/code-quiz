@@ -94,3 +94,7 @@ body {
 .choices {
     display: none;
 }
+
+.answer-choice {
+    width: 25%;
+}
