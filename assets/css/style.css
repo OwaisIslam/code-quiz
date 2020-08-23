@@ -19,8 +19,7 @@ body {
 .instructions h1,
 .instructions p,
 .button-control,
-.question-block,
-.answer-block {
+.question-block {
     display: flex;
     justify-content: center;
 }
@@ -70,10 +69,6 @@ body {
     box-shadow: 0 9px #999;
 }
 
-.answers {
-    list-style: lower-alpha;
-}
-
 .break {
     flex-basis: 100%;
     height: 0;
@@ -83,19 +78,32 @@ body {
     font-size: 35px;
 }
 
-.answers {
-    font-size: 30px;
+.questions {
+    padding-top: 150px;
 }
 
-.question-block {
-    /* background-color: maroon; */
-}
-
-.choices {
-    display: none;
-    width: 100%;
-}
-
+.choices,
 .answer-choice {
-    width: 25%;
+    display: none;
+    margin: auto;
+    width: 50%;
+}
+
+.choices button {
+    background-color: #4CAF50;
+    border: 1px solid green;
+    color: white;
+    padding: 10px 24px;
+    cursor: pointer;
+    width: 50%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.choices button:not(:last-child) {
+    /* border-bottom: none; */
+}
+
+.choices button:hover {
+    background-color: #3e8e41;
 }

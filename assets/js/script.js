@@ -88,8 +88,12 @@ function quizQuestion(timerInterval) {
 }
 
 function checkAnswer() {
+    // removes the focus on the button after clicking
+    this.style.outline = "none";
+
     console.log("you clicked " + this.textContent);
 
+    // checks the button selected to see if it is the correct answer
     if ((this.textContent) == (questions[currentQuestion].answers[questions[currentQuestion].correctAnswer])) {
         console.log("correct");
     } else {
@@ -131,12 +135,12 @@ beginButtonClick.addEventListener("click", function () {
     }, 1000)
 
     instructions.style.display = "none";
-    choices.style.display = "flex";
+    choicesBlock.style.display = "block";
 
     quizQuestion(timerStart);
 })
 
-buttonAnswerA.addEventListener("click", checkAnswer);
-buttonAnswerB.addEventListener("click", checkAnswer);
-buttonAnswerC.addEventListener("click", checkAnswer);
-buttonAnswerD.addEventListener("click", checkAnswer);
+// This assigns event listeners to all the answer choices.
+var buttons = document.querySelectorAll(".answer-choice").forEach(function (elem) {
+    elem.addEventListener("click", checkAnswer);
+})
