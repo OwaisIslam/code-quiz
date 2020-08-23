@@ -89,21 +89,31 @@ body {
     width: 50%;
 }
 
-.choices button {
+.choices {
+    border-bottom: 1px solid;
+}
+
+.answer-choice {
     background-color: #4CAF50;
     border: 1px solid green;
-    color: white;
+    font-size: 25px;
     padding: 10px 24px;
     cursor: pointer;
-    width: 50%;
+    width: 80%;
     display: block;
     margin-bottom: 10px;
 }
 
-.choices button:not(:last-child) {
-    /* border-bottom: none; */
+.answer-choice:hover {
+    background-color: #3e8e41;
 }
 
-.choices button:hover {
-    background-color: #3e8e41;
+.answer-choice:last-child {
+    margin-bottom: 50px;
+}
+
+.result {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 25px;
 }

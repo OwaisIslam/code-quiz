@@ -2,9 +2,9 @@ var body = document.querySelector("body");
 var timer = document.querySelector("#time");
 var instructions = document.querySelector(".instructions");
 var beginButtonClick = document.querySelector("#beginButton");
-var choices = document.querySelector(".choices");
-var choicesBlock = document.querySelector(".choices");
 var questionP = document.querySelector(".question");
+var choicesBlock = document.querySelector(".choices");
+var result = document.querySelector(".result");
 
 var buttonAnswerA = document.querySelector("#answer1");
 var buttonAnswerB = document.querySelector("#answer2");
@@ -96,8 +96,10 @@ function checkAnswer() {
     // checks the button selected to see if it is the correct answer
     if ((this.textContent) == (questions[currentQuestion].answers[questions[currentQuestion].correctAnswer])) {
         console.log("correct");
+        result.textContent = "CORRECT";
     } else {
         currentTime -= 10;
+        result.textContent = "WRONG";
         if (currentTime < 1) {
             endGame();
         }
@@ -121,6 +123,7 @@ function checkTime(timerInterval) {
 
 function endGame() {
     choicesBlock.style.display = "none";
+    result.style.display = "none";
 
     console.log("your score " + currentTime);
 
