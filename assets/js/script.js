@@ -3,7 +3,8 @@ var timer = document.querySelector("#time");
 var instructions = document.querySelector(".instructions");
 var beginButtonClick = document.querySelector("#beginButton");
 var choices = document.querySelector(".choices");
-var questionBlock = document.querySelector(".questions");
+var choicesBlock = document.querySelector(".choices");
+var questionP = document.querySelector(".question");
 
 var buttonAnswerA = document.querySelector("#answer1");
 var buttonAnswerB = document.querySelector("#answer2");
@@ -70,27 +71,32 @@ var questions = [{
     }
 ]
 
-var quizQuestion = function () {
-    if (currentQuestion < questions.length) {
-        var questionP = document.querySelector(".question");
+function quizQuestion(timerInterval) {
+    checkTime(timerInterval);
 
+    if (currentQuestion < questions.length) {
         questionP.textContent = questions[currentQuestion].ask;
 
         buttonAnswerA.textContent = questions[currentQuestion].answers[0];
         buttonAnswerB.textContent = questions[currentQuestion].answers[1];
         buttonAnswerC.textContent = questions[currentQuestion].answers[2];
         buttonAnswerD.textContent = questions[currentQuestion].answers[3];
-    }
-    else {
+    } else {
+        checkTime(timerInterval);
         endGame();
     }
 }
 
-var checkAnswer = function () {
+function checkAnswer() {
     console.log("you clicked " + this.textContent);
 
     if ((this.textContent) == (questions[currentQuestion].answers[questions[currentQuestion].correctAnswer])) {
         console.log("correct");
+    } else {
+        currentTime -= 10;
+        if (currentTime < 1) {
+            endGame();
+        }
     }
 
     currentQuestion++;
@@ -98,23 +104,36 @@ var checkAnswer = function () {
     quizQuestion();
 }
 
-var endGame = function () {
-    questionBlock.style.display = "none";
+function checkTime(timerInterval) {
+    if (currentQuestion == questions.length) {
+        clearInterval(timerInterval);
+        endGame();
+    } else if (currentTime <= 0) {
+        timer.textContent = 0;
+        clearInterval(timerInterval);
+        endGame();
+    }
+}
+
+function endGame() {
+    choicesBlock.style.display = "none";
+
+    console.log("your score " + currentTime);
+
+    questionP.textContent = ("Your score: " + currentTime);
 }
 
 beginButtonClick.addEventListener("click", function () {
     var timerStart = setInterval(function () {
         currentTime--;
         timer.textContent = currentTime;
-        if (currentTime == 0) {
-            clearInterval(timerStart);
-        }
+        checkTime(timerStart);
     }, 1000)
 
     instructions.style.display = "none";
     choices.style.display = "flex";
 
-    quizQuestion();
+    quizQuestion(timerStart);
 })
 
 buttonAnswerA.addEventListener("click", checkAnswer);
