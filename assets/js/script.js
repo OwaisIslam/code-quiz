@@ -5,6 +5,8 @@ var beginButtonClick = document.querySelector("#beginButton");
 var questionP = document.querySelector(".question");
 var choicesBlock = document.querySelector(".choices");
 var result = document.querySelector(".result");
+var finalScore = document.querySelector(".final-score");
+var endOfGame = document.querySelector(".end-of-game");
 
 var buttonAnswerA = document.querySelector("#answer1");
 var buttonAnswerB = document.querySelector("#answer2");
@@ -91,11 +93,8 @@ function checkAnswer() {
     // removes the focus on the button after clicking
     this.style.outline = "none";
 
-    console.log("you clicked " + this.textContent);
-
     // checks the button selected to see if it is the correct answer
     if ((this.textContent) == (questions[currentQuestion].answers[questions[currentQuestion].correctAnswer])) {
-        console.log("correct");
         result.textContent = "CORRECT";
     } else {
         currentTime -= 10;
@@ -116,18 +115,20 @@ function checkTime(timerInterval) {
         endGame();
     } else if (currentTime <= 0) {
         timer.textContent = 0;
+        currentTime = 0;
         clearInterval(timerInterval);
         endGame();
     }
 }
 
 function endGame() {
+    questionP.style.display = "none";
     choicesBlock.style.display = "none";
     result.style.display = "none";
 
-    console.log("your score " + currentTime);
+    endOfGame.style.display = "block";
 
-    questionP.textContent = ("Your score: " + currentTime);
+    finalScore.textContent = ("Your final score is " + currentTime + ".");
 }
 
 beginButtonClick.addEventListener("click", function () {

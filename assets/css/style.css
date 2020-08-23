@@ -117,3 +117,40 @@ body {
     text-align: center;
     font-size: 25px;
 }
+
+.end-of-game {
+    display: none;
+}
+
+.initial-form {
+    display:flex;
+    justify-content: center;
+    line-height: 0px;
+}
+
+.final-score,
+.initial-form p {
+    text-align: center;
+    font-size: 50px;
+}
+
+.initial-form p {
+    padding-right: 15px;
+}
+
+.initial-form input {
+    font-size: 50px;
+    line-height: 10px;
+    width: 200px;
+}
+
+.submit-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.submit {
+    margin-left: 15px;
+    width: 25%;
+}
