@@ -3,7 +3,6 @@ body {
 }
 
 .info-bar {
-    /* background-color: aqua; */
     display: flex;
     justify-content: space-around;
 }
@@ -24,7 +23,7 @@ body {
     justify-content: center;
 }
 
-.instructions div {
+.instruction-box {
     padding-top: 20px;
     line-height: 100%;
 }
@@ -151,4 +150,13 @@ body {
 
 .submit:hover {
     background-color: #3e8e41;
+}
+
+.scores {
+    display: flex;
+    justify-content: center;
+}
+
+.scores h1 {
+    font-size: 40px;
 }

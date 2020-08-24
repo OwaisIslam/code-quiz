@@ -10,7 +10,7 @@
 
 <body>
     <header class="info-bar">
-        <div class="high-scores"><a href="">View High Scores</a></div>
+        <div class="high-scores"><a href="highscores.html">View High Scores</a></div>
         <div class="timer">Time: <span id="time">60</span></div>
     </header>
 
@@ -43,11 +43,11 @@
                     <p class="final-score"></p>
                 </div>
                 <div>
-                    <form class="initial-form">
+                    <form action="highscores.html" class="initial-form">
                         Enter your initials: <input type="text" name="initials" id="user_initials">
                         <br>
                         <br>
-                        <input type="button" onclick="resetGame()" value="Submit">
+                        <input type="submit" onclick="resetGame()">
                     </form>
                 </div>
             </div>

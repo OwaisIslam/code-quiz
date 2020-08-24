@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Scores</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header class="info-bar">
+        <div class="high-scores"><a href="index.html">Restart Game</a></div>
+        <div class="timer">Time: <span id="time">60</span></div>
+    </header>
+
+    <main>
+        <section class="scores">
+            <div>
+                <h1>High Scores</h1>
+            </div>
+            <div>
+                <ol class="score-list"></ol>
+            </div>
+        </section>
+    </main>
+</body>
+
+<script>
+    var score_list = document.querySelector(".score-list");
+    for (var i = 1; i < localStorage.length; i++) {
+        var item = document.createElement("li");
+        console.log(localStorage.key(i));
+        item.textContent = localStorage.key(i) + " - " + localStorage.getItem(localStorage.key(i));
+        score_list.appendChild(item);
+    }
+</script>
+
+</html>

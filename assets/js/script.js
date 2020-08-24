@@ -136,22 +136,19 @@ function endGame() {
     result.style.display = "none";
     endOfGame.style.display = "block";
 
-    finalScore.textContent = ("Your final score is " + currentTime + ".");
-
-    if (localStorage.getItem("currentScore" === null)) {
-        localStorage.setItem("currentScore", currentScore);
-    } else if (currentTime > parseInt(localStorage.getItem("currentScore"))) {
-        localStorage.setItem("currentScore", currentScore);
+    if (currentTime > parseInt(localStorage.getItem("highScore"))) {
+        finalScore.textContent = ("You have the new high score! Your final score is " + currentTime + ".");
+        localStorage.setItem("highScore", currentTime);
+    } else {
+        finalScore.textContent = ("Your final score is " + currentTime + ".");
     }
-    console.log(localStorage.getItem("currentScore"));
 }
 
 function resetGame() {
     var user_initials = document.querySelector("#user_initials").value;
     console.log(user_initials);
 
-    endOfGame.style.display = "none";
-    instructions.style.display = "block";
+    localStorage.setItem(user_initials, currentTime);
 }
 
 beginButtonClick.addEventListener("click", function () {
@@ -166,11 +163,6 @@ beginButtonClick.addEventListener("click", function () {
 
     quizQuestion(timerStart);
 })
-
-// submitButtonClick.addEventListener("click", function () {
-//     endOfGame.style.display = "none";
-//     instructions.style.display = "block";
-// })
 
 // This assigns event listeners to all the answer choices.
 var buttons = document.querySelectorAll(".answer-choice").forEach(function (elem) {
