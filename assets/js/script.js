@@ -13,8 +13,17 @@ var buttonAnswerB = document.querySelector("#answer2");
 var buttonAnswerC = document.querySelector("#answer3");
 var buttonAnswerD = document.querySelector("#answer4");
 
+var submitInitials = document.querySelector(".initial-form");
+// var submitButtonClick = document.querySelector(".submit");
+
 var currentTime = timer.textContent;
 var currentQuestion = 0;
+
+var highScore = localStorage.getItem("highscore");
+if (highScore === null) {
+    localStorage.setItem("highScore", 0);
+    highScore = 0;
+}
 
 var questions = [{
         ask: "Inside which HTML element do we put the JavaScript?",
@@ -125,10 +134,24 @@ function endGame() {
     questionP.style.display = "none";
     choicesBlock.style.display = "none";
     result.style.display = "none";
-
     endOfGame.style.display = "block";
 
     finalScore.textContent = ("Your final score is " + currentTime + ".");
+
+    if (localStorage.getItem("currentScore" === null)) {
+        localStorage.setItem("currentScore", currentScore);
+    } else if (currentTime > parseInt(localStorage.getItem("currentScore"))) {
+        localStorage.setItem("currentScore", currentScore);
+    }
+    console.log(localStorage.getItem("currentScore"));
+}
+
+function resetGame() {
+    var user_initials = document.querySelector("#user_initials").value;
+    console.log(user_initials);
+
+    endOfGame.style.display = "none";
+    instructions.style.display = "block";
 }
 
 beginButtonClick.addEventListener("click", function () {
@@ -143,6 +166,11 @@ beginButtonClick.addEventListener("click", function () {
 
     quizQuestion(timerStart);
 })
+
+// submitButtonClick.addEventListener("click", function () {
+//     endOfGame.style.display = "none";
+//     instructions.style.display = "block";
+// })
 
 // This assigns event listeners to all the answer choices.
 var buttons = document.querySelectorAll(".answer-choice").forEach(function (elem) {

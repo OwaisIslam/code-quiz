@@ -122,20 +122,11 @@ body {
     display: none;
 }
 
-.initial-form {
-    display:flex;
-    justify-content: center;
-    line-height: 0px;
-}
 
 .final-score,
-.initial-form p {
+.initial-form {
     text-align: center;
     font-size: 50px;
-}
-
-.initial-form p {
-    padding-right: 15px;
 }
 
 .initial-form input {
@@ -151,6 +142,13 @@ body {
 }
 
 .submit {
-    margin-left: 15px;
-    width: 25%;
+    background-color: orchid;
+    margin-top: 15px;
+    width: 200%;
+    font-size: 30px;
+    padding: 10px 0px;
+}
+
+.submit:hover {
+    background-color: #3e8e41;
 }

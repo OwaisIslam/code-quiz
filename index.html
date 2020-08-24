@@ -42,12 +42,13 @@
                 <div>
                     <p class="final-score"></p>
                 </div>
-                <div class="initial-form">
-                    <p>Enter your initials: </p>
-                    <input type="text" id="user-initials">
-                </div>
-                <div class="submit-container">
-                    <button class="submit">Submit</button>
+                <div>
+                    <form class="initial-form">
+                        Enter your initials: <input type="text" name="initials" id="user_initials">
+                        <br>
+                        <br>
+                        <input type="button" onclick="resetGame()" value="Submit">
+                    </form>
                 </div>
             </div>
             <div class="result-block">
