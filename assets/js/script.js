@@ -14,11 +14,11 @@ var buttonAnswerC = document.querySelector("#answer3");
 var buttonAnswerD = document.querySelector("#answer4");
 
 var submitInitials = document.querySelector(".initial-form");
-// var submitButtonClick = document.querySelector(".submit");
 
 var currentTime = timer.textContent;
 var currentQuestion = 0;
 
+//This will initialize the high score to 0 if there isn't one in local storage. 
 var highScore = localStorage.getItem("highscore");
 if (highScore === null) {
     localStorage.setItem("highScore", 0);
@@ -85,6 +85,7 @@ var questions = [{
 function quizQuestion(timerInterval) {
     checkTime(timerInterval);
 
+    // This checks to make sure the questions have not all been answered before displaying on the page.
     if (currentQuestion < questions.length) {
         questionP.textContent = questions[currentQuestion].ask;
 
@@ -93,16 +94,15 @@ function quizQuestion(timerInterval) {
         buttonAnswerC.textContent = questions[currentQuestion].answers[2];
         buttonAnswerD.textContent = questions[currentQuestion].answers[3];
     } else {
-        checkTime(timerInterval);
-        // endGame();
+        endGame();
     }
 }
 
 function checkAnswer() {
-    // removes the focus on the button after clicking
+    // This removes the focus on the button after clicking
     this.style.outline = "none";
 
-    // checks the button selected to see if it is the correct answer
+    // This checks the button selected to see if it is the correct answer
     if ((this.textContent) == (questions[currentQuestion].answers[questions[currentQuestion].correctAnswer])) {
         result.textContent = "CORRECT";
     } else {
@@ -118,6 +118,7 @@ function checkAnswer() {
     quizQuestion();
 }
 
+// This checks to make sure there is still time left.
 function checkTime(timerInterval) {
     if (currentQuestion == questions.length) {
         clearInterval(timerInterval);
@@ -136,17 +137,19 @@ function endGame() {
     result.style.display = "none";
     endOfGame.style.display = "block";
 
+    // This checks to see if the user's score is the new high score.
     if (currentTime > parseInt(localStorage.getItem("highScore"))) {
         finalScore.textContent = ("You have the new high score! Your final score is " + currentTime + ".");
-        localStorage.setItem("highScore", currentTime);
     } else {
         finalScore.textContent = ("Your final score is " + currentTime + ".");
     }
 }
 
+// This stores the user's score in local storage.
 function resetGame() {
     var user_initials = document.querySelector("#user_initials").value;
 
+    localStorage.setItem("highScore", currentTime);
     localStorage.setItem(user_initials, currentTime);
 }
 
@@ -164,6 +167,6 @@ beginButtonClick.addEventListener("click", function () {
 })
 
 // This assigns event listeners to all the answer choices.
-var buttons = document.querySelectorAll(".answer-choice").forEach(function (elem) {
-    elem.addEventListener("click", checkAnswer);
+var buttons = document.querySelectorAll(".answer-choice").forEach(function (item) {
+    item.addEventListener("click", checkAnswer);
 })
