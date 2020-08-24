@@ -23,17 +23,32 @@
                 <ol class="score-list"></ol>
             </div>
         </section>
+
+        <section class="clear-high-scores">
+            <div class="clear-high-scores">
+                <button id="clearScores">Clear High Scores</button>
+            </div>
+        </section>
     </main>
 </body>
 
 <script>
     var score_list = document.querySelector(".score-list");
-    for (var i = 1; i < localStorage.length; i++) {
-        var item = document.createElement("li");
-        console.log(localStorage.key(i));
-        item.textContent = localStorage.key(i) + " - " + localStorage.getItem(localStorage.key(i));
-        score_list.appendChild(item);
+    var clearClick = document.querySelector("#clearScores");
+
+    for (var i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i) != "highScore") {
+            var item = document.createElement("li");
+            item.textContent = localStorage.key(i) + " - " + localStorage.getItem(localStorage.key(i));
+            score_list.appendChild(item);
+        }
     }
+
+    clearClick.addEventListener("click", function () {
+        localStorage.clear();
+        location.reload();
+    })
+     
 </script>
 
 </html>

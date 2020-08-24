@@ -94,7 +94,7 @@ function quizQuestion(timerInterval) {
         buttonAnswerD.textContent = questions[currentQuestion].answers[3];
     } else {
         checkTime(timerInterval);
-        endGame();
+        // endGame();
     }
 }
 
@@ -146,7 +146,6 @@ function endGame() {
 
 function resetGame() {
     var user_initials = document.querySelector("#user_initials").value;
-    console.log(user_initials);
 
     localStorage.setItem(user_initials, currentTime);
 }

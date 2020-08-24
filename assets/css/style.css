@@ -143,9 +143,11 @@ body {
 .submit {
     background-color: orchid;
     margin-top: 15px;
-    width: 200%;
-    font-size: 30px;
     padding: 10px 0px;
+}
+
+input.submit {
+    font-size: 25px;
 }
 
 .submit:hover {
@@ -153,10 +155,32 @@ body {
 }
 
 .scores {
-    display: flex;
+    display: block;
+    text-align: center;
     justify-content: center;
 }
 
 .scores h1 {
     font-size: 40px;
+}
+
+.score-list {
+    font-size: 35px;
+    width: 25%;
+    margin: 0 auto;
+}
+
+.clear-high-scores {
+    display: flex;
+    margin: 0 auto;
+}
+
+.clear-high-scores button {
+    background-color: orchid;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.clear-high-scores button:hover {
+    background-color: #3e8e41;
 }
